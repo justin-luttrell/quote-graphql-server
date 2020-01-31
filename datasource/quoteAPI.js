@@ -7,7 +7,18 @@ class QuoteAPI extends RESTDataSource {
     }
 
     async getQuote(){
-        return this.get();
+        const res = await this.get("");
+        return this.quoteReducer(res);
+    }
+
+    quoteReducer(quote){
+        return {
+            quote: quote.contents.quotes[0].quote,
+            length: quote.contents.quotes[0].length,
+            author: quote.scontents.quotes[0].autor,
+            category: quote.contents.quotes[0].category,
+            date: quote.contents.quotes[0].date
+        }
     }
 }
 
