@@ -11,13 +11,13 @@ class QuoteAPI extends RESTDataSource {
         return this.quoteReducer(res);
     }
 
-    quoteReducer(quote){
+    quoteReducer(data){
         return {
-            quote: quote.contents.quotes[0].quote,
-            length: quote.contents.quotes[0].length,
-            author: quote.scontents.quotes[0].autor,
-            category: quote.contents.quotes[0].category,
-            date: quote.contents.quotes[0].date
+            quote: data.contents.quotes[0].quote,
+            length: data.contents.quotes[0].length,
+            author: data.contents.quotes[0].author,
+            category: data.contents.quotes[0].category,
+            date: data.contents.quotes[0].date
         }
     }
 }
